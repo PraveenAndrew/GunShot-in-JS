@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+       <meta charset="UTF-8">
+       <meta http-equiv="X-UA-Compatible" content="IE=edge">
+       <meta name="viewport" content="width=device-width, initial-scale=1.0">
+       <title>Gun shot in JS</title>
+       <style>
+              .gunshot 
+              {
+                     width: 200px;
+                     height: 200px;
+                     border-radius: 50%;
+                     position: absolute;
+                     cursor: pointer;
+              }
+       </style>
+</head>
+<body>
+       
+  <img src="../Projects/resources/lion.jpg" alt="" class="gunshot" id="gunshot" style="display:none;">
+  
+  <script type="text/javascript">
+
+   function gunShot(e)
+   {
+          var a = document.getElementById('gunshot').cloneNode();
+       // var a = document.getElementById('gunshot');
+          document.body.appendChild(a);
+          a.style.display = "block";
+  
+       a.style.left = e.clientX - (a.offsetWidth / 2) + 'px';
+       a.style.top = e.clientY - (a.offsetHeight / 2) +  'px';
+      
+       var audio = new Audio();
+       audio.src = "../resources/Songs.mp3";
+       audio.play();
+
+   }  
+
+
+   window.onclick= gunShot;
+
+
+  </script>
+</body>
+</html>
